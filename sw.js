@@ -1,5 +1,5 @@
 /* 離線快取：模型與函式庫優先用快取（秒開），網頁與程式優先抓最新版（改版立即生效） */
-const CACHE='bonewalker-v0.4.0';
+const CACHE='bonewalker-v0.4.1';
 const CORE=['./','index.html','css/style.css','js/config.js','js/data.js','js/game.js','manifest.webmanifest'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
