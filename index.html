@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>亡骨行者 Online</title>
+<meta name="theme-color" content="#0d0b12">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="亡骨行者">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&family=Noto+Serif+TC:wght@700;900&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="gl"></canvas>
+<div id="ui">
+  <div id="plates"></div>
+  <div id="floats"></div>
+  <div id="pf" class="uf hit">
+    <div class="nm"><b id="pfN">亡者</b><span id="pfL">Lv 1</span></div>
+    <div class="bar hpb"><i id="pfH"></i><span id="pfHT"></span></div>
+    <div class="bar mpb"><i id="pfM"></i><span id="pfMT"></span></div>
+  </div>
+  <div id="menu" class="hit">
+    <button type="button" id="mBag">背包</button><button type="button" id="mTal">天賦</button><button type="button" id="mQ">任務</button><button type="button" id="mRank">天梯</button><button type="button" id="mSys">系統</button>
+  </div>
+  <div id="tf" class="uf" hidden>
+    <div class="nm"><b id="tfN"></b><span id="tfL"></span></div>
+    <div class="bar hpb"><i id="tfH"></i><span id="tfHT"></span></div>
+    <div class="bar tcb" id="tfCB" hidden><i id="tfC"></i></div>
+    <div id="tfSub"></div>
+  </div>
+  <div id="buffWrap" style="position:fixed;left:calc(8px + env(safe-area-inset-left,0px));top:calc(106px + env(safe-area-inset-top,0px))"><div id="buffs"></div></div>
+  <div id="mm"><canvas id="mmc" width="192" height="192"></canvas></div>
+  <div id="zone"></div>
+  <div id="qt"></div>
+  <div id="err"></div>
+  <div id="banner"><b id="bnT"></b><span id="bnS"></span></div>
+  <div id="toast"></div>
+  <div id="cb" hidden><i id="cbF"></i><span id="cbT"></span></div>
+  <div id="joy"><div id="joyK"></div></div>
+  <div id="util" class="hit">
+    <button type="button" class="ub" id="uTab">Tab<small>選怪</small></button>
+    <button type="button" class="ub" id="uAct" data-off>互動<small id="uActS">—</small></button>
+    <button type="button" class="ub" id="uSit">冥想<small>回復</small></button>
+    <button type="button" class="ub" id="uPot">藥水<small id="uPotS">0/0</small></button>
+  </div>
+  <div id="bar" class="hit"></div>
+  <div id="xp"><i id="xpF"></i></div>
+  <div id="xpT"></div>
+</div>
+<div class="ov" id="panel" hidden><div class="sheet" id="sheet"></div></div>
+<div class="ov" id="title" hidden><div class="in" id="titleIn"></div></div>
+<div id="loading">正在喚醒亡者……</div>
+<div class="ov" id="fatal" hidden style="z-index:40"><div class="sheet"><h2 id="fatalT"></h2><p id="fatalM" style="font-size:13px;word-break:break-all"></p><div class="row"><button type="button" class="btn pri" onclick="location.reload()">重新載入</button></div></div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/utils/SkeletonUtils.js"></script>
+<script src="js/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/game.js"></script>
+<script>if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('sw.js').catch(()=>{});</script>
+</body>
+</html>
